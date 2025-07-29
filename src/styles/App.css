@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+  --background-dark: #455163; /* light purple */
+  --background-light: #5997d5; /* lighter purple */
+  --primary-color: rgb(153, 66, 47);
+  --text-light: #b95959;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: #444a57 !important;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #444a57 !important;
+}
+
+h1 {
+  color: violet;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    rgba(54, 169, 204, 0) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+  font-family: var(--font-roboto);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.search {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2rem;
+  border-radius: 2rem;
+  background: var(--background-light);
+  box-shadow: 0 2px 8px rgba(98, 173, 215, 0.12);
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.3rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: var(--text-light);
+  background: var(--background-light);
+}
+
+.search button,
+.search img {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.search button:hover,
+.search img:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 2rem 0.5rem;
+  }
+  .search {
+    padding: 1rem 1rem;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
