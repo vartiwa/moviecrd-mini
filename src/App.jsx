@@ -22,11 +22,13 @@ export const searchMovies = async (query) => {
 }
 
 function App() {
- 
   return (
     <div>
       <NavBar />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
     
    <main className="main-content">
     <Routes>
