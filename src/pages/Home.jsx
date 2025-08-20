@@ -10,6 +10,12 @@ function Home(){
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true)
 
+    const GENRES = [
+      { name: 'Kids', id: 10751 },
+      { name: 'Comedy', id: 35 },
+      { name: 'Action', id: 28 }
+    ];
+
     useEffect(() => {
         const loadPopularMovies = async () => {
             try{
@@ -46,6 +52,21 @@ function Home(){
 
         setSearchQuery("");
     }
+
+    const fetchByGenre = async (genreId) => {
+      setLoading(true);
+      try {
+        const url = `https://api.themoviedb.org/3/discover/movie?api_key=555f75386b25196965cc81153e84ba1c&with_genres=${genreId}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        setMovies(data.results);
+      } catch (err) {
+        setError('Failed to fetch genre movies');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     return (
         <div className="home">
             <form onSubmit={handleSearch} className="search-form">
@@ -53,6 +74,18 @@ function Home(){
                 value = {searchQuery} onChange={(e) => setSearchQuery(e.target.value) }/>
                 <button type="submit" className="search-button">Search</button>
             </form>
+            <div style={{ display: 'flex', gap: '1rem', margin: '1rem 0' }}>
+              {GENRES.map(genre => (
+                <button
+                  key={genre.id}
+                  className="search-button"
+                  style={{ minWidth: '100px' }}
+                  onClick={() => fetchByGenre(genre.id)}
+                >
+                  {genre.name}
+                </button>
+              ))}
+            </div>
             {loading ?(
                 <div className="loading">Loading...</div>
            
