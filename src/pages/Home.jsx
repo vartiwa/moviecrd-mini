@@ -74,12 +74,11 @@ function Home(){
                 value = {searchQuery} onChange={(e) => setSearchQuery(e.target.value) }/>
                 <button type="submit" className="search-button">Search</button>
             </form>
-            <div style={{ display: 'flex', gap: '1rem', margin: '1rem 0' }}>
+            <div className="genre-buttons">
               {GENRES.map(genre => (
                 <button
                   key={genre.id}
                   className="search-button"
-                  style={{ minWidth: '100px' }}
                   onClick={() => fetchByGenre(genre.id)}
                 >
                   {genre.name}
